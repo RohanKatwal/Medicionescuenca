@@ -54,6 +54,10 @@ p {
   color: #d1d5dc;
 }
 
+a span{
+  display: flex;
+}
+
 /* Highlights */
 .highlight {
   color: #f19200 !important;
@@ -137,6 +141,16 @@ p {
   align-items: center;
   gap: 46px;
   list-style: none;
+}
+
+.nav-item{
+  position: relative;
+}
+
+.nav-item .active-line{
+  position: absolute;
+  left: 0;
+  bottom: -16px;
 }
 
 .nav-links a {
@@ -276,29 +290,29 @@ p {
 }
 
 /* land measurement */
-.land_measurement {
+.land-measurement {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 32px;
 }
 
-.land_measurement .left h2 {
+.land-measurement .left h2 {
   font-size: 40px;
   line-height: 56px;
 }
 
-.land_measurement .left h4 {
+.land-measurement .left h4 {
   margin: 12px 0;
 }
 
-.land_measurement .left p {
+.land-measurement .left p {
   line-height: 32px;
   font-size: 18px;
   color: #d9d9d9;
 }
 
-.land_measurement .left .btn-primary {
+.land-measurement .left .btn-primary {
   display: block;
   margin-top: 24px;
   display: flex;
@@ -307,7 +321,7 @@ p {
   gap: 8px;
 }
 
-.land_measurement .img img {
+.land-measurement .img img {
   border-radius: 12px;
   aspect-ratio: 16/9;
   width: 100%;
@@ -529,11 +543,11 @@ p {
     font-size: 18px;
   }
 
-  .land_measurement {
+  .land-measurement {
     grid-template-columns: 1fr;
   }
 
-  .land_measurement .left a {
+  .land-measurement .left a {
     text-align: center;
   }
 
@@ -621,7 +635,7 @@ p {
   }
 
 
-  .land_measurement .left h2 {
+  .land-measurement .left h2 {
     font-size: 28px;
     line-height: 40px;
   }
