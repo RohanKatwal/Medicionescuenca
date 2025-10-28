@@ -72,6 +72,10 @@ p {
   font-size: 20px;
 }
 
+.menu-toggle {
+  display: none;
+}
+
 /* Top Bar */
 .top-bar {
   background-color: #f19200;
@@ -203,9 +207,11 @@ p {
 }
 
 .hero-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: space-between;
+  gap: 90px;
   align-items: center;
+  width: 100%;
 }
 
 .hero-text {
@@ -315,7 +321,7 @@ p {
 
 .contact-content {
   display: grid;
-  grid-template-columns: 60% 40%;
+  grid-template-columns: 58% 40%;
   gap: 24px;
 }
 
@@ -435,8 +441,8 @@ p {
 
 .footer .top {
   display: grid;
-  grid-template-columns: 30% 40% 30%;
-  gap: 50px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 70px;
   padding: 32px 0;
 }
 
@@ -512,8 +518,11 @@ p {
 
   .hero-text p {
     font-size: 18px;
-    max-width: 550px;
     width: auto;
+  }
+
+  .hero-image img {
+    width: 425px;
   }
 
   .hero-buttons a {
@@ -548,19 +557,13 @@ p {
   }
 
   .hero-content {
-    margin-top: 90px;
-    grid-template-columns: 1fr;
+    flex-direction: column;
     justify-content: center;
     gap: 60px;
   }
 
   .hero-image {
     place-content: center;
-  }
-
-  .hero-text p {
-    max-width: 700px;
-    width: auto;
   }
 
   .hero-buttons {
@@ -581,21 +584,44 @@ p {
   }
 }
 
+@media (max-width: 996px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    flex-direction: column;
+    top: 0;
+    left: -1px;
+    background-color: #191919cd;
+    backdrop-filter: blur(30px);
+    border-left: 1px solid #3e3e3e;
+    z-index: 100;
+    width: 300px;
+    height: 100vh;
+    padding: 100px 0 0;
+    gap: 60px;
+    transform: translateX(-100%);
+    transition: all 0.4s ease-in-out;
+  }
+
+  .nav-links.show {
+    transform: translateX(0%);
+  }
+
+  .nav-links a {
+    font-size: 18px;
+  }
+}
+
 @media (max-width: 778px) {
   h2 {
     font-size: 28px;
   }
 
-  header {
-    display: none;
-  }
-  .hero-buttons {
-    display: grid;
-    grid-template-columns: 1fr;
-    max-width: 350px;
-  }
 
-  .land_measurement .left h2{
+  .land_measurement .left h2 {
     font-size: 28px;
     line-height: 40px;
   }
@@ -612,18 +638,28 @@ p {
     line-height: 20px;
   }
 
+  .top-bar-content{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
   .hero-text p {
     font-size: 14px;
     line-height: 24px;
   }
 
+  .hero-image img{
+    width: 100%;
+  }
+
+  .hero-buttons {
+    grid-template-columns: 1fr;
+  }
+
   .hero-buttons a {
     font-size: 16px;
     padding: 16px 24px;
-  }
-
-  .stats-content {
-    padding: 0 0;
   }
 
   .form-input label {

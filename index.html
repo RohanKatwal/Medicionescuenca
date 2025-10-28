@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Medicionescuenca</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/src/styles/style.css" />
   </head>
   <body>
     <!-- Top Bar -->
@@ -71,12 +71,21 @@
     <nav class="navbar">
       <div class="container navbar-content">
         <div class="logo">
-          <img src="/images/logo.svg" alt="" />
+          <img src="/public/images/logo.svg" alt="" />
         </div>
         <div class="menu-toggle" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 18V16H21V18H3ZM3 13V11H21V13H3ZM3 8V6H21V8H3Z"
+              fill="white"
+            />
+          </svg>
         </div>
         <ul class="nav-links" id="navLinks">
           <li><a href="#inicio">Home</a></li>
@@ -89,7 +98,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="container hero" id="inicio">
+    <section class="hero container" id="inicio">
       <div class="hero-content">
         <div class="hero-text">
           <h1>
@@ -107,7 +116,7 @@
           </div>
         </div>
         <div class="hero-image">
-          <img src="/images/Logo.png" alt="logo" />
+          <img src="/public/images/Logo.png" alt="logo" />
         </div>
       </div>
     </section>
@@ -124,52 +133,52 @@
       </div>
       <ul class="services">
         <li class="services-item">
-          <img src="/images/ruler.svg" alt="ruler" />
+          <img src="/public/images/ruler.svg" alt="ruler" />
           <h4>Diseño</h4>
           <p>Diseño arquitectónico personalizado</p>
         </li>
         <li class="services-item">
-          <img src="/images/building.svg" alt="building" />
+          <img src="/public/images/building.svg" alt="building" />
           <h4>Planificación</h4>
           <p>Planificación urbana y territorial</p>
         </li>
         <li class="services-item">
-          <img src="/images/home.svg" alt="home" />
+          <img src="/public/images/home.svg" alt="home" />
           <h4>Construcción</h4>
           <p>Gestión y ejecución de obras</p>
         </li>
         <li class="services-item">
-          <img src="/images/board.svg" alt="board" />
+          <img src="/public/images/board.svg" alt="board" />
           <h4>Levantamientos</h4>
           <p>Levantamientos topográficos</p>
         </li>
         <li class="services-item">
-          <img src="/images/calculator.svg" alt="calculator" />
+          <img src="/public/images/calculator.svg" alt="calculator" />
           <h4>Peritajes</h4>
           <p>Avalúos y peritajes técnicos</p>
         </li>
         <li class="services-item">
-          <img src="/images/check.svg" alt="check" />
+          <img src="/public/images/check.svg" alt="check" />
           <h4>Avalúos</h4>
           <p>Valoración de bienes inmuebles</p>
         </li>
         <li class="services-item">
-          <img src="/images/location.svg" alt="location" />
+          <img src="/public/images/location.svg" alt="location" />
           <h4>Lotizaciones</h4>
           <p>Fraccionamiento de terrenos</p>
         </li>
         <li class="services-item">
-          <img src="/images/file_check.svg" alt="file_check" />
+          <img src="/public/images/file_check.svg" alt="file_check" />
           <h4>Trámites Municipales</h4>
           <p>Gestión de permisos</p>
         </li>
         <li class="services-item">
-          <img src="/images/file_check.svg" alt="file_check" />
+          <img src="/public/images/file_check.svg" alt="file_check" />
           <h4>Legalización de Tierras</h4>
           <p>Regularización de propiedades</p>
         </li>
         <li class="services-item">
-          <img src="/images/camera.svg" alt="camera" />
+          <img src="/public/images/camera.svg" alt="camera" />
           <h4>Fotogrametría</h4>
           <p>Levantamientos aéreos y terrestres</p>
         </li>
@@ -218,7 +227,7 @@
         </a>
       </div>
       <div class="img">
-        <img src="/images/poster.jpg" alt="poster" />
+        <img src="/public/images/poster.jpg" alt="poster" />
       </div>
     </section>
 
@@ -712,5 +721,8 @@
         </svg>
       </a>
     </div>
+
+
+    <script src="/src/js/index.js"></script>
   </body>
 </html>
