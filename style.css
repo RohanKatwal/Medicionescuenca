@@ -146,11 +146,15 @@ a span{
 .nav-item{
   position: relative;
 }
-
 .nav-item .active-line{
   position: absolute;
   left: 0;
   bottom: -16px;
+  display: none;
+}
+
+.nav-item .active-line.active{
+  display: block;
 }
 
 .nav-links a {
@@ -158,7 +162,6 @@ a span{
   text-decoration: none;
   transition: color 0.3s;
 }
-
 .nav-links a:hover,
 .nav-links a.active {
   color: #f19200;
