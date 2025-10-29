@@ -788,7 +788,7 @@ function validateForm() {
     // Name validation
     if (name.value.trim().length < 2) {
         name.classList.add('error');
-        name.nextElementSibling.innerText = 'Please enter your name';
+        name.nextElementSibling.innerText = 'Por favor, ingrese su nombre';
         name.nextElementSibling.style.display = 'block';
         isValid = false;
     } else {
@@ -800,7 +800,7 @@ function validateForm() {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email.value.trim())) {
         email.classList.add('error');
-        email.nextElementSibling.innerText = 'Please enter a valid email';
+        email.nextElementSibling.innerText = 'Por favor, ingrese un correo electrónico válido';
         email.nextElementSibling.style.display = 'block';
         isValid = false;
     } else {
@@ -812,7 +812,7 @@ function validateForm() {
     const phonePattern = /^[0-9+\s]+$/;
     if (!phonePattern.test(phone.value.trim()) || phone.value.trim().length < 7) {
         phone.classList.add('error');
-        phone.nextElementSibling.innerText = 'Please enter a valid phone number';
+        phone.nextElementSibling.innerText = 'Por favor, ingrese un número de teléfono válido';
         phone.nextElementSibling.style.display = 'block';
         isValid = false;
     } else {
@@ -823,7 +823,7 @@ function validateForm() {
     // Message validation
     if (message.value.trim().length < 1) {
         message.classList.add('error');
-        message.nextElementSibling.innerText = 'Enter your message';
+        message.nextElementSibling.innerText = 'Por favor, escriba su mensaje';
         message.nextElementSibling.style.display = 'block';
         isValid = false;
     } else {
@@ -840,7 +840,7 @@ form.addEventListener("submit", function (e) {
     if (!validateForm()) return; // Stop if validation fails
 
     sendBtn.classList.add("loading");
-    sendBtn.innerText = "Sending...";
+    sendBtn.innerText = "Enviando...";
 
     const params = {
         name: document.getElementById("name").value,
@@ -855,8 +855,8 @@ form.addEventListener("submit", function (e) {
         sendBtn.innerText = "ENVIAR";
 
         Toast.fire({
-            title: 'Success!',
-            text: 'Your message has been sent',
+            title: '¡Éxito!',
+            text: 'Su mensaje ha sido enviado',
             icon: 'success'
         });
 
@@ -867,13 +867,14 @@ form.addEventListener("submit", function (e) {
         sendBtn.innerText = "ENVIAR";
 
         Toast.fire({
-            title: 'Error!',
-            text: 'Something went wrong 😢',
+            title: '¡Error!',
+            text: 'Algo salió mal 😢',
             icon: 'error'
         });
     });
 });
 </script>
+
 
 
 </body>
