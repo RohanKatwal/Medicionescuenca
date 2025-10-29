@@ -419,9 +419,10 @@ a span{
   border-radius: 8px;
 }
 
-.contact-right .info p {
+.contact-right .info a {
   font-size: 15px;
   line-height: 24px;
+  color: #d1d5dc;
 }
 
 .contact-right .social {
@@ -476,6 +477,10 @@ a span{
   align-items: center;
   gap: 16px;
   margin-bottom: 24px;
+}
+
+.footer .top .info a{
+  color: #d1d5dc;
 }
 
 .footer .top .social .s-top {
