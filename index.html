@@ -269,6 +269,7 @@
               name="name"
               id="name"
               placeholder="Type Here..."
+              required 
             />
           </div>
           <div class="form-input">
@@ -278,11 +279,12 @@
               name="email"
               id="email"
               placeholder="Demo@gmail.com"
+              required 
             />
           </div>
           <div class="form-input">
             <label for="phone">Phone <span>*</span></label>
-            <input type="tel" name="phone" id="phone" placeholder="099 |" />
+            <input type="tel" name="phone" id="phone" placeholder="099 |" required />
           </div>
           <div class="form-input message">
             <label for="message">Message <span>*</span></label>
@@ -291,9 +293,10 @@
               name="message"
               id="message"
               placeholder="Type Here..."
+              required 
             ></textarea>
           </div>
-          <button type="submit" class="btn-primary">
+          <button type="submit" class="btn-primary send-btn"  id="sendBtn">
             Enviar mensaje
             <span
               ><svg
@@ -739,6 +742,139 @@
       </a>
     </div>
 
-    <script src="index.js"></script>
-  </body>
+<script src="index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+emailjs.init("xnV8dzwvA50Ui7ikf");
+
+const sendBtn = document.getElementById("sendBtn");
+const form = document.querySelector(".form");
+
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+    }
+});
+
+// Validation function
+function validateForm() {
+    let isValid = true;
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const phone = document.getElementById("phone");
+    const message = document.getElementById("message");
+
+    const fields = [name, email, phone, message];
+
+    fields.forEach(input => {
+        let errorMsg = input.nextElementSibling;
+        if (!errorMsg || !errorMsg.classList.contains('error-message')) {
+            const error = document.createElement('div');
+            error.className = 'error-message';
+            input.insertAdjacentElement('afterend', error);
+            errorMsg = input.nextElementSibling;
+        }
+        errorMsg.style.display = 'none';
+    });
+
+    // Name validation
+    if (name.value.trim().length < 2) {
+        name.classList.add('error');
+        name.nextElementSibling.innerText = 'Please enter your name';
+        name.nextElementSibling.style.display = 'block';
+        isValid = false;
+    } else {
+        name.classList.remove('error');
+        name.nextElementSibling.style.display = 'none';
+    }
+
+    // Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email.value.trim())) {
+        email.classList.add('error');
+        email.nextElementSibling.innerText = 'Please enter a valid email';
+        email.nextElementSibling.style.display = 'block';
+        isValid = false;
+    } else {
+        email.classList.remove('error');
+        email.nextElementSibling.style.display = 'none';
+    }
+
+    // Phone validation (numbers only, allow + and spaces)
+    const phonePattern = /^[0-9+\s]+$/;
+    if (!phonePattern.test(phone.value.trim()) || phone.value.trim().length < 7) {
+        phone.classList.add('error');
+        phone.nextElementSibling.innerText = 'Please enter a valid phone number';
+        phone.nextElementSibling.style.display = 'block';
+        isValid = false;
+    } else {
+        phone.classList.remove('error');
+        phone.nextElementSibling.style.display = 'none';
+    }
+
+    // Message validation
+    if (message.value.trim().length < 1) {
+        message.classList.add('error');
+        message.nextElementSibling.innerText = 'Enter your message';
+        message.nextElementSibling.style.display = 'block';
+        isValid = false;
+    } else {
+        message.classList.remove('error');
+        message.nextElementSibling.style.display = 'none';
+    }
+
+    return isValid;
+}
+
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    if (!validateForm()) return; // Stop if validation fails
+
+    sendBtn.classList.add("loading");
+    sendBtn.innerText = "Sending...";
+
+    const params = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        message: document.getElementById("message").value,
+    };
+
+    emailjs.send("service_aypew9r", "template_mbe6mbf", params)
+    .then(() => {
+        sendBtn.classList.remove("loading");
+        sendBtn.innerText = "ENVIAR";
+
+        Toast.fire({
+            title: 'Success!',
+            text: 'Your message has been sent',
+            icon: 'success'
+        });
+
+        form.reset();
+    })
+    .catch(() => {
+        sendBtn.classList.remove("loading");
+        sendBtn.innerText = "ENVIAR";
+
+        Toast.fire({
+            title: 'Error!',
+            text: 'Something went wrong 😢',
+            icon: 'error'
+        });
+    });
+});
+</script>
+
+
+</body>
 </html>
