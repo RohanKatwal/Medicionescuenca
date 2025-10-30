@@ -996,6 +996,7 @@
             });
 
             form.reset();
+            grecaptcha.reset(); 
           })
           .catch(() => {
             sendBtn.classList.remove("loading");
