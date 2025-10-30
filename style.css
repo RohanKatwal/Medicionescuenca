@@ -355,8 +355,8 @@ a span{
   margin-bottom: 16px;
 }
 
-.form-input.message {
-  margin-bottom: 32px !important;
+.g-recaptcha {
+  margin-bottom: 16px !important;
 }
 
 .form-input label {
