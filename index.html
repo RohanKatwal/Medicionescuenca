@@ -962,6 +962,17 @@
 
         if (!validateForm()) return; // Stop if validation fails
 
+        // Check if reCAPTCHA is completed
+        const recaptchaResponse = grecaptcha.getResponse();
+        if (recaptchaResponse.length === 0) {
+          Toast.fire({
+            title: "¡Atención!",
+            text: "Por favor, complete el reCAPTCHA",
+            icon: "warning",
+          });
+          return;
+        }
+
         sendBtn.classList.add("loading");
         sendBtn.innerText = "Enviando...";
 
