@@ -18,7 +18,7 @@ navItems.forEach((nav, index) => {
 
 const images = [
     "/images/poster.jpg",
-    "/images/logo.png",
+    "/images/Logo.png",
     "/images/IC_logo.png",
   ];
 
